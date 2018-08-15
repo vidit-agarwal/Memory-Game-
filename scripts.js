@@ -19,7 +19,22 @@ function flipCard() {
       secondCard = this;
 
       //do cards match here
-      
+      if(firstCard.dataset.framework === secondCard.dataset.framework)
+      {
+          //its a match
+          firstCard.removeEventListener('click', flipCard) ;
+          secondCard.removeEventListener('click', flipCard) ;
+      }
+      else{
+          //not a match
+          setTimeout(() => {
+            firstCard.classList.remove('flip') ;
+            secondCard.classList.remove('flip') ;
+          } , 1000) ;
+       
+      }
+
+
   }
 }
 
